@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  app:
+    build: . 
+    image: leen2004/monitoring-app:v1
+    container_name: monitoring-app
+    network_mode: "host"
+    pid: "host"
+    volumes:
+      - /:/hostfs:ro 
+    environment:
+      DB_HOST: "192.168.56.101" 
+      DB_PORT: "3306"
+      DB_NAME: "metrics"
+      DB_USER: "appuser"
+      DB_PASSWORD: "secretpass"
+    restart: unless-stopped
+
