@@ -5,7 +5,6 @@ services:
     build: . 
     image: leen2004/monitoring-app:v1
     container_name: monitoring-app
-    network_mode: "host"
     pid: "host"
     volumes:
       - /:/hostfs:ro 
